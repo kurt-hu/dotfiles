@@ -36,3 +36,4 @@ ubuntu-wsl
 unzip
 valgrind
 xclip
+zsh
