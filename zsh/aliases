@@ -21,5 +21,5 @@ alias tk='tmux kill-session -t'
 alias ta='tmux attach -t'
 alias tl='tmux list-sessions'
 
-alias cdir='/mnt/c/Users/kurth/code'
+alias cdir='cd /mnt/c/Users/kurth/code'
 
