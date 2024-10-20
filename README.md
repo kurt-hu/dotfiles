@@ -10,3 +10,15 @@
 
 To install packages: `xargs sudo apt-get install -y < apt-mark-packages.txt`
 To save packages: `apt-mark showmanual > apt-mark-packages.txt`
+
+5. Configure zsh
+
+In the root directory, add a tiny `~/.zshenv` file with this content. This will point to the complete file in the repository.
+```
+ZDOTDIR=~/.config/zsh
+source -- "$ZDOTDIR"/.zshenv
+```
+
+6. Install starship (see https://github.com/starship/starship)
+
+`curl -sS https://starship.rs/install.sh | sh`

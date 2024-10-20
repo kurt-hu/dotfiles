@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+alias l='ls --color=auto'
+alias la='ls -A'
+
+alias n='nvim'
+alias nt="nvim -c 'lua require(\"telescope.builtin\").oldfiles()'"
+alias g='git'
+alias ga='git add'
+alias gs='git status'
+alias gp='git pull'
+alias gb='git branch'
+alias gr='git remote'
+alias grs='git remote show'
+alias gl='git log'
+alias glo='git log --pretty="oneline"'
+alias glol='git log --graph --oneline --decorate'
+
+alias t='tmux'
+alias tk='tmux kill-session -t'
+alias ta='tmux attach -t'
+alias tl='tmux list-sessions'
+
+alias cdir='/mnt/c/Users/kurth/code'
+
