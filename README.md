@@ -31,3 +31,9 @@ Follow the instructions to install the following tools:
 ### 6. Install starship (see https://github.com/starship/starship)
 
 `curl -sS https://starship.rs/install.sh | sh`
+
+### 7. Install tmux plugins
+
+1. Start tmux: `tmux new -s session-name`
+2. Install plugins with tpm keybind: `Prefix (Ctrl+b) + I`
+

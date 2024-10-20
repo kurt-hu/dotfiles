@@ -18,7 +18,8 @@ alias glol='git log --graph --oneline --decorate'
 
 alias t='tmux'
 alias tk='tmux kill-session -t'
-alias ta='tmux attach -t'
+alias ta='tmux attach'
+alias td='tmux detach'
 alias tl='tmux list-sessions'
 
 alias cdir='cd /mnt/c/Users/kurth/code'
