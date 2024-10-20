@@ -10,7 +10,7 @@
 2. Run `wsl`
 3. Symlink wezterm folder to windows home folder (needed because wezterm doesn't run in wsl): `mklink /D C:\Users\kurth\.config\wezterm \\wsl.localhost\Ubuntu\home\kurt\.config\wezterm`
 
-### 4. Install packages
+### 4. Install Ubuntu packages
 
 To install packages: `xargs sudo apt-get install -y < ~/.config/apt-mark-packages.txt`
 
@@ -23,6 +23,10 @@ In the root directory, add a tiny `~/.zshenv` file with this content. This will 
 ZDOTDIR=~/.config/zsh
 source -- "$ZDOTDIR"/.zshenv
 ```
+
+Follow the instructions to install the following tools:
+- https://github.com/junegunn/fzf
+- https://github.com/ajeetdsouza/zoxide
 
 ### 6. Install starship (see https://github.com/starship/starship)
 
