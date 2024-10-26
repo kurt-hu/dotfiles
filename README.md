@@ -27,6 +27,7 @@ source -- "$ZDOTDIR"/.zshenv
 Follow the instructions to install the following tools:
 - https://github.com/junegunn/fzf
 - https://github.com/ajeetdsouza/zoxide
+- https://github.com/nvm-sh/nvm
 
 ### 6. Install starship (see https://github.com/starship/starship)
 
