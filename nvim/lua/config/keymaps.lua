@@ -27,3 +27,9 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Resize windows using Alt + h/j/k/l
+vim.keymap.set('n', '<A-h>', ':vertical resize -2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-l>', ':vertical resize +2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-j>', ':resize -2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':resize +2<CR>', { noremap = true, silent = true })

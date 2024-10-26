@@ -8,6 +8,7 @@ return {
       ensure_installed = {
         'bash',
         'c',
+        'cpp',
         'diff',
         'html',
         'javascript',
@@ -17,12 +18,16 @@ return {
         'markdown_inline',
         'python',
         'query',
+        'tsx',
         'typescript',
         'vim',
         'vimdoc',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
+      lazy = false,
+      build = ':TSUpdate',
+      autotag = { enable = true },
       highlight = {
         enable = true,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
@@ -46,6 +51,23 @@ return {
       dependencies = {
         'nvim-treesitter/nvim-treesitter',
       },
+    },
+    {
+      'windwp/nvim-ts-autotag',
+      config = function()
+        require('nvim-ts-autotag').setup {
+          opts = {
+            -- Defaults
+            enable_close = true, -- Auto close tags
+            enable_rename = true, -- Auto rename pairs of tags
+            enable_close_on_slash = false, -- Auto close on trailing </
+          },
+          -- Also override individual filetype configs, these take priority.
+          -- Empty by default, useful if one of the "opts" global settings
+          -- doesn't work well in a specific filetype
+          per_filetype = {},
+        }
+      end,
     },
   },
 }
