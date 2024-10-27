@@ -7,6 +7,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('i', 'kj', '<Esc>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('n', 's', '<nop>', { noremap = true, silent = true })
+vim.keymap.set('n', ',s', 's', { noremap = true, silent = true, desc = 'Delete char and enter insert mode' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
