@@ -177,9 +177,9 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
 
+        -- managed by typescript-tools
+        ts_ls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -223,9 +223,18 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+
+          ['ts_ls'] = function()
+            -- do nothing, managed by typescript-tools
+          end,
         },
       }
     end,
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
   },
   { -- Autoformat
     'stevearc/conform.nvim',
