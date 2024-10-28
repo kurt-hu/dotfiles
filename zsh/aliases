@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
 
 alias l='ls --color=auto'
 alias la='ls -A'
@@ -24,3 +24,4 @@ alias tl='tmux list-sessions'
 
 alias cdir='cd /mnt/c/Users/kurth/code'
 
+alias lg='lazygit'
