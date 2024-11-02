@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/jtroo/kanata/releases
+HostUrl=https://objects.githubusercontent.com/github-production-release-asset-2e65be/482716510/96cf5133-afb8-445e-863b-be2c297b13ff?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20241101%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241101T005857Z&X-Amz-Expires=300&X-Amz-Signature=5972d3fe2ed6e4a1a394c5c45e05bdfd1f9da425fcfdf193359727b80cdee935&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dkanata.kbd&response-content-type=application%2Foctet-stream

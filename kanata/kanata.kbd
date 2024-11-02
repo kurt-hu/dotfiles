@@ -1,0 +1,99 @@
+#|
+Source: https://github.com/jtroo/kanata/blob/main/cfg_samples/home-row-mod-advanced.kbd
+
+Since it may be important for you to know, pressing and holding all of the
+three following keys together at the same time will cause kanata to exit:
+
+  Left Control, Space, Escape
+|#
+
+(defcfg
+  ;; Enable processing of keys that are not in defsrc.
+  process-unmapped-keys yes
+
+  ;; This configuration makes multiple tap-hold actions that are activated near
+  ;; in time expire their timeout quicker. Without this, the timeout for the 2nd
+  ;; tap-hold onwards will start from 0ms after the previous tap-hold expires.
+  ;;
+  concurrent-tap-hold yes
+
+  ;; This configuration makes the release of one-shot-press and of the tap in a tap-hold
+  ;; by the defined number of milliseconds (approximate).
+  ;; The default value is 5.
+  ;; While the release is delayed, further processing of inputs is also paused.
+  ;; This means that there will be a minor input latency impact in the mentioned scenarios.
+  ;; The reason for this configuration existing is that some environments
+  ;; do not process the scenarios correctly due to the rapidity of the release.
+  ;; Kanata does send the events in the correct order,
+  ;; so the fault is more in the environment, but kanata provides a workaround anyway.
+  rapid-event-delay 5
+
+  ;; This configuration will press and then immediately release the non-modifier key
+  ;; as soon as the override activates, meaning you are unlikely as a human to ever
+  ;; release modifiers first, which can result in unintended behaviour.
+  ;;
+  ;; The downside of this configuration is that the non-modifier key
+  ;; does not remain held which is important to consider for your use cases.
+  override-release-on-activation yes
+)
+
+;; Only one defsrc is allowed.
+;;
+;; defsrc defines the keys that will be intercepted by kanata. The order of the
+;; keys matches the deflayer declarations and all deflayer declarations must
+;; have the same number of keys as defsrc.
+
+(defsrc
+  a   s   d   f   j   k   l   ;
+  caps esc
+)
+
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 200
+  hold-time 250
+
+  left-hand-keys (
+    q w e r t
+    a s d f g
+    z x c v b
+  )
+  right-hand-keys (
+    y u i o p
+    h j k l ;
+    n m , . /
+  )
+)
+
+(deflayer base
+  @a  @s  @d  @f  @j  @k  @l  @;
+  esc caps
+)
+
+(deflayer nomods
+  a   s   d   f   j   k   l   ;
+  esc caps
+)
+
+
+(deffakekeys
+  to-base (layer-switch base)
+)
+
+(defalias
+  tap (multi
+    (layer-switch nomods)
+    (on-idle-fakekey to-base tap 20)
+  )
+
+  a (tap-hold-release-keys $tap-time $hold-time (multi a @tap) lmet $left-hand-keys)
+  s (tap-hold-release-keys $tap-time $hold-time (multi s @tap) lalt $left-hand-keys)
+  d (tap-hold-release-keys $tap-time $hold-time (multi d @tap) lctl $left-hand-keys)
+  f (tap-hold-release-keys $tap-time $hold-time (multi f @tap) lsft $left-hand-keys)
+  j (tap-hold-release-keys $tap-time $hold-time (multi j @tap) rsft $right-hand-keys)
+  k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rctl $right-hand-keys)
+  l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) ralt $right-hand-keys)
+  ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rmet $right-hand-keys)
+)
