@@ -9,6 +9,7 @@
 1. Setup WSL2 (Ubuntu)
 2. Run `wsl`
 3. Symlink wezterm folder to windows home folder (needed because wezterm doesn't run in wsl): `mklink /D C:\Users\kurth\.config\wezterm \\wsl.localhost\Ubuntu\home\kurt\.config\wezterm`
+4. Symlink kanata folder to windows to make it easier to run, pin to taskbar if you want or figure out how to run in background automatically: `mklink /D C:\Users\kurth\code\kanata \\wsl.localhost\Ubuntu\home\kurt\.config\kanata`
 
 ### 4. Install Ubuntu packages
 
@@ -31,9 +32,9 @@ Follow the instructions to install the following tools:
 - https://github.com/jesseduffield/lazygit?tab=readme-ov-file#ubuntu
   ```
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-  tar xf lazygit.tar.gz lazygit
-  sudo install lazygit /usr/local/bin
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
   ```
 
 ### 6. Install starship (see https://github.com/starship/starship)
