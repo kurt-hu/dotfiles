@@ -44,8 +44,11 @@ three following keys together at the same time will cause kanata to exit:
 ;; have the same number of keys as defsrc.
 
 (defsrc
-  a   s   d   f   j   k   l   ;
+  s   d   f   j   k   l
   caps esc
+  ; bspc
+  ' ret
+  / rsft
 )
 
 (defvar
@@ -53,7 +56,8 @@ three following keys together at the same time will cause kanata to exit:
   ;; For example, your pinkies might be slower to release keys and index
   ;; fingers faster.
   tap-time 200
-  hold-time 250
+  ;; shift-hold-time 500
+  hold-time 500
 
   left-hand-keys (
     q w e r t
@@ -68,13 +72,19 @@ three following keys together at the same time will cause kanata to exit:
 )
 
 (deflayer base
-  @a  @s  @d  @f  @j  @k  @l  @;
+  @s  @d  @f  @j  @k  @l
   esc caps
+  bspc /
+  ret '
+  rsft ;
 )
 
 (deflayer nomods
-  a   s   d   f   j   k   l   ;
+  s   d   f   j   k   l
   esc caps
+  bspc ;
+  ret '
+  rsft /
 )
 
 
@@ -88,12 +98,20 @@ three following keys together at the same time will cause kanata to exit:
     (on-idle-fakekey to-base tap 20)
   )
 
-  a (tap-hold-release-keys $tap-time $hold-time (multi a @tap) lmet $left-hand-keys)
-  s (tap-hold-release-keys $tap-time $hold-time (multi s @tap) lalt $left-hand-keys)
-  d (tap-hold-release-keys $tap-time $hold-time (multi d @tap) lctl $left-hand-keys)
-  f (tap-hold-release-keys $tap-time $hold-time (multi f @tap) lsft $left-hand-keys)
-  j (tap-hold-release-keys $tap-time $hold-time (multi j @tap) rsft $right-hand-keys)
-  k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rctl $right-hand-keys)
-  l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) ralt $right-hand-keys)
-  ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rmet $right-hand-keys)
+  s (tap-hold-release-keys $tap-time $hold-time (multi s @tap) lmet $left-hand-keys)
+  d (tap-hold-release-keys $tap-time $hold-time (multi d @tap) lalt $left-hand-keys)
+  f (tap-hold-release-keys $tap-time $hold-time (multi f @tap) lctl $left-hand-keys)
+  j (tap-hold-release-keys $tap-time $hold-time (multi j @tap) rctl $right-hand-keys)
+  k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) ralt $right-hand-keys)
+  l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) rmet $right-hand-keys)
+  
+  ;; for default hrm with shift
+  ;; a (tap-hold-release-keys $tap-time $hold-time (multi a @tap) lmet $left-hand-keys)
+  ;; s (tap-hold-release-keys $tap-time $hold-time (multi s @tap) lalt $left-hand-keys)
+  ;; d (tap-hold-release-keys $tap-time $hold-time (multi d @tap) lctl $left-hand-keys)
+  ;; f (tap-hold-release-keys $tap-time $shift-hold-time (multi f @tap) lsft $left-hand-keys)
+  ;; j (tap-hold-release-keys $tap-time $shift-hold-time (multi j @tap) rsft $right-hand-keys)
+  ;; k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rctl $right-hand-keys)
+  ;; l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) ralt $right-hand-keys)
+  ;; ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rmet $right-hand-keys)
 )
