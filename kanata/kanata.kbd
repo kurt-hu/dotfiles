@@ -47,7 +47,6 @@ three following keys together at the same time will cause kanata to exit:
   s   d   f   j   k   l
   caps esc
   ; bspc
-  ' ret
   / rsft
 )
 
@@ -75,16 +74,14 @@ three following keys together at the same time will cause kanata to exit:
   @s  @d  @f  @j  @k  @l
   esc caps
   bspc /
-  ret '
   rsft ;
 )
 
 (deflayer nomods
   s   d   f   j   k   l
   esc caps
-  bspc ;
-  ret '
-  rsft /
+  bspc /
+  rsft ;
 )
 
 
