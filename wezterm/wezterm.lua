@@ -11,6 +11,7 @@ config = {
 	default_prog = { "C:/Program Files/Git/bin/bash.exe", "--login" },
 	enable_tab_bar = true,
 	enable_scroll_bar = true,
+	font_size = 11,
 	window_background_opacity = 0.8,
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "INTEGRATED_BUTTONS",

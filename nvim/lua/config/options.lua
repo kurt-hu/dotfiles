@@ -61,7 +61,6 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = '80'
 
 vim.opt.errorbells = false
 vim.opt.iskeyword:append '-'
