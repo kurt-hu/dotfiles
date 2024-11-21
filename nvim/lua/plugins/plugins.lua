@@ -4,10 +4,57 @@ return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'tpope/vim-obsession',
   {
-    'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
+    'otavioschwanck/arrow.nvim',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons' },
+      -- or if using `mini.icons`
+      -- { "echasnovski/mini.icons" },
     },
+    opts = {
+      show_icons = true,
+      leader_key = ';', -- Recommended to be a single key
+      buffer_leader_key = 'm', -- Per Buffer Mappings
+    },
+  },
+  {
+    'danielfalk/smart-open.nvim',
+    branch = '0.2.x',
+    config = function()
+      require('telescope').load_extension 'smart_open'
+
+      vim.keymap.set('n', '<leader>so', function()
+        require('telescope').extensions.smart_open.smart_open()
+      end, { noremap = true, silent = true, desc = '[S]mart [O]pen' })
+    end,
+    dependencies = {
+      'kkharji/sqlite.lua',
+      -- Only required if using match_algorithm fzf
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
+  },
+  {
+    'mbbill/undotree',
+    config = function()
+      vim.g.undotree_DiffAutoOpen = 1
+      vim.g.undotree_SetFocusWhenToggle = 1
+      vim.g.undotree_ShortIndicators = 1
+      vim.g.undotree_DiffpanelHeight = 20
+      vim.g.undotree_SplitWidth = 50
+      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndotree toggle' })
+
+      if vim.fn.has 'persistent_undo' then
+        local target_path = vim.fn.expand '~/.undotree-dir'
+
+        -- create the directory and any parent directories
+        -- if the location does not exist.
+        if vim.fn.isdirectory(target_path) == 0 then
+          vim.fn.mkdir(target_path, 'p', '0o700')
+        end
+
+        vim.opt.undodir = target_path
+        vim.opt.undofile = true
+      end
+    end,
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
@@ -124,11 +171,12 @@ return {
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
-  { -- Add indentation guides even on blank lines
+  {
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
     main = 'ibl',
+    commit = 'e7a4442e055ec953311e77791546238d1eaae507',
+    ---@module "ibl"
+    ---@type ibl.config
     opts = {},
   },
   {
@@ -162,21 +210,6 @@ return {
       hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     end,
   },
-  -- {
-  --   'folke/noice.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {
-  --     -- add any options here
-  --   },
-  --   dependencies = {
-  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  --     'MunifTanjim/nui.nvim',
-  --     -- OPTIONAL:
-  --     --   `nvim-notify` is only needed, if you want to use the notification view.
-  --     --   If not available, we use `mini` as the fallback
-  --     -- "rcarriga/nvim-notify",
-  --   },
-  -- },
   {
     'aserowy/tmux.nvim',
     config = function()

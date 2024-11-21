@@ -28,6 +28,7 @@ neovim
 nodejs
 playerctl
 ripgrep
+sqlite3
 sysvinit-utils
 tmux
 ubuntu-minimal

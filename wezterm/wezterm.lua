@@ -6,12 +6,14 @@ local config = wezterm.config_builder()
 
 config = {
 	adjust_window_size_when_changing_font_size = false,
+	animation_fps = 30,
 	automatically_reload_config = true,
 	default_cursor_style = "BlinkingBar",
 	default_prog = { "C:/Program Files/Git/bin/bash.exe", "--login" },
 	enable_tab_bar = true,
 	enable_scroll_bar = true,
 	font_size = 11,
+	max_fps = 144,
 	window_background_opacity = 0.8,
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "INTEGRATED_BUTTONS",
